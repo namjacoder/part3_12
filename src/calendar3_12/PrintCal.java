@@ -5,43 +5,13 @@ public class PrintCal {
 	private static final int[] LEAP_MONTH_LAST_DAY = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};	//윤년 월 마지막날
 	
 	//달력 출력
-	public void printCalendar(int nYear, int nMonth, String sStartDay) {
-		int nStartDay = 0;
+	public void printCalendar(int nYear, int nMonth, int nStartDay) {
+		nStartDay = nStartDay - 1;	//전달된 기준은 1~7, 사용하는 기준은 0~6. 고로 -1해서 사용해야 맞음.
 		
 		System.out.printf("     <<%d년 %d월>>\n", nYear, nMonth);
 		System.out.println(" SU MO TU WE TH FR SA");
 		System.out.println("---------------------");
 
-		switch(sStartDay) {
-			case "MO":
-				nStartDay = 1;
-				break;
-				
-			case "TU":
-				nStartDay = 2;
-				break;
-
-			case "WE":
-				nStartDay = 3;
-				break;
-				
-			case "TH":
-				nStartDay = 4;
-				break;
-
-			case "FR":
-				nStartDay = 5;
-				break;
-				
-			case "SA":
-				nStartDay = 6;
-				break;
-
-			default:
-				nStartDay = 0;
-				break;
-		}
-		
 		//시작일수만큼 공백 만들기
 		for(int i=1; i<=nStartDay; i++) {
 			System.out.print("   ");
